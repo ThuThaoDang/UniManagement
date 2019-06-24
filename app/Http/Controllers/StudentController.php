@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use App\Department;
+use App\Instructor;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -14,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -24,7 +27,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        $instructors = Instructor::all();
+        return view('student.create', compact('departments', 'instructors'));
     }
 
     /**
@@ -35,7 +40,20 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'department' => 'required',
+            'instructor' => 'required',
+            'name' => 'required',
+            'tot_cred' => 'required|integer',
+        ]);
+
+        $student = new Student();
+        $student->department_id = $request->department;
+        $student->instructor_id = $request->instructor;
+        $student->stud_name = $request->name;
+        $student->tot_cred = $request->tot_cred;
+        $student->save();
+        return redirect()->route('student.index');
     }
 
     /**
@@ -55,9 +73,12 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        $departments = Department::all();
+        $instructors = Instructor::all();
+        return view('student.edit', compact('student', 'departments', 'instructors'));
     }
 
     /**
@@ -67,9 +88,22 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'department' => 'required',
+            'instructor' => 'required',
+            'name' => 'required',
+            'tot_cred' => 'required|integer',
+        ]);
+
+        $student = Student::find($id);
+        $student->department_id = $request->department;
+        $student->instructor_id = $request->instructor;
+        $student->stud_name = $request->name;
+        $student->tot_cred = $request->tot_cred;
+        $student->save();
+        return redirect()->route('student.index');
     }
 
     /**
@@ -78,8 +112,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        //
+        Student::find($id)->delete();
+        return redirect()->back();
+
     }
 }
