@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Instructor;
+use App\Department;
 use Illuminate\Http\Request;
 
 class InstructorController extends Controller
@@ -14,7 +15,8 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        //
+        $instructors = Instructor::all();
+        return view('instructor.index', compact('instructors'));
     }
 
     /**
@@ -24,7 +26,8 @@ class InstructorController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        return view('instructor.create', compact('departments'));
     }
 
     /**
@@ -35,7 +38,18 @@ class InstructorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'department' => 'required',
+            'name' => 'required',
+            'salary' => 'required|numeric',
+        ]);
+
+        $instructor = new Instructor();
+        $instructor->department_id = $request->department;
+        $instructor->inst_name = $request->name;
+        $instructor->salary = $request->salary;
+        $instructor->save();
+        return redirect()->route('instructor.index');
     }
 
     /**
@@ -55,9 +69,11 @@ class InstructorController extends Controller
      * @param  \App\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Instructor $instructor)
+    public function edit($id)
     {
-        //
+        $instructor = Instructor::find($id);
+        $departments = Department::all();
+        return view('instructor.edit', compact('instructor', 'departments'));
     }
 
     /**
@@ -67,9 +83,20 @@ class InstructorController extends Controller
      * @param  \App\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Instructor $instructor)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'department' => 'required',
+            'name' => 'required',
+            'salary' => 'required|numeric',
+        ]);
+
+        $instructor = Instructor::find($id);
+        $instructor->department_id = $request->department;
+        $instructor->inst_name = $request->name;
+        $instructor->salary = $request->salary;
+        $instructor->save();
+        return redirect()->route('instructor.index');
     }
 
     /**
@@ -78,8 +105,9 @@ class InstructorController extends Controller
      * @param  \App\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Instructor $instructor)
+    public function destroy($id)
     {
-        //
+        Instructor::find($id)->delete();
+        return redirect()->back();
     }
 }
