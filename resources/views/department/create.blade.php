@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Edit Department')
+@section('title', 'Create Department')
 
 @push('css')
 <style>
@@ -94,25 +94,24 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <strong>Edit Department</strong>
+                            <strong>Add New Department</strong>
                         </div>
-                        <form method="POST" action="{{ route('department.update', $department->id) }}">
+                        <form method="POST" action="{{ route('department.store') }}">
                             {{ csrf_field() }}
-                            {{ method_field('PUT') }}
                             <div class="card-body card-block">
                                 <div class="form-group">
                                     <label for="name" class=" form-control-label">Name</label>
-                                    <input type="text" id="name" value="{{ $department->dept_name }}" class="form-control"
+                                    <input type="text" id="name" placeholder="Enter name" class="form-control"
                                         name="name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="building" class=" form-control-label">Building</label>
-                                    <input type="text" id="building" value="{{ $department->building }}"
+                                    <input type="text" id="building" placeholder="Enter building"
                                         class="form-control" name="building" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="budget" class=" form-control-label">Budget</label>
-                                    <input type="text" id="budget" value="{{ $department->budget }}"
+                                    <input type="text" id="budget" placeholder="Enter budget"
                                         class="form-control" name="budget" required>
                                 </div>
                             </div>

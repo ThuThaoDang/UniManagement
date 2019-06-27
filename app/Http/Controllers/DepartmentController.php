@@ -14,7 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        return view('department.index', compact('departments'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('department.create');
     }
 
     /**
@@ -35,7 +36,18 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'building' => 'required',
+            'budget' => 'required',
+        ]);
+
+        $department = new Department();
+        $department->dept_name = $request->name;
+        $department->building = $request->building;
+        $department->budget = $request->budget;
+        $department->save();
+        return redirect()->route('department.index');
     }
 
     /**
@@ -55,9 +67,10 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit($id)
     {
-        //
+        $department = Department::find($id);
+        return view('instructor.edit', compact('department'));
     }
 
     /**
@@ -67,9 +80,20 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'building' => 'required',
+            'budget' => 'required',
+        ]);
+
+        $department = Department::find($id);
+        $department->dept_name = $request->name;
+        $department->building = $request->building;
+        $department->budget = $request->budget;
+        $department->save();
+        return redirect()->route('department.index');
     }
 
     /**
@@ -78,8 +102,9 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy($id)
     {
-        //
+        Department::find($id)->delete();
+        return redirect()->back();
     }
 }
