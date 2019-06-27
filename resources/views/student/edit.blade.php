@@ -45,29 +45,29 @@
         transition: transform .3s ease-in-out;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+    ul.ks-cboxtags li input[type="radio"]:checked+label::before {
         content: "\f00c";
         transform: rotate(-360deg);
         transition: transform .3s ease-in-out;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+    ul.ks-cboxtags li input[type="radio"]:checked+label {
         border: 2px solid #1bdbf8;
         background-color: #12bbd4;
         color: #fff;
         transition: all .2s;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"] {
+    ul.ks-cboxtags li input[type="radio"] {
         display: absolute;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"] {
+    ul.ks-cboxtags li input[type="radio"] {
         position: absolute;
         opacity: 0;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"]:focus+label {
+    ul.ks-cboxtags li input[type="radio"]:focus+label {
         border: 2px solid #e9a1ff;
     }
 </style>
@@ -106,7 +106,7 @@
                                         <ul class="ks-cboxtags">
                                             @foreach ($departments as $department)
                                             <li>
-                                                <input type="checkbox" id="department-{{ $department->id }}"
+                                                <input type="radio" id="department-{{ $department->id }}"
                                                     name="department" value="{{ $department->id }}"
                                                     class="form-check-input"
                                                     @if ($student->department_id == $department->id)
@@ -125,7 +125,7 @@
                                         <ul class="ks-cboxtags">
                                             @foreach ($instructors as $instructor)
                                             <li>
-                                                <input type="checkbox" id="instructor-{{ $instructor->id }}"
+                                                <input type="radio" id="instructor-{{ $instructor->id }}"
                                                     name="instructor" value="{{ $instructor->id }}"
                                                     class="form-check-input"
                                                     @if ($student->instructor_id == $instructor->id)
