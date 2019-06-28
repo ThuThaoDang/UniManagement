@@ -59,7 +59,7 @@
                             <tbody>
                                 @foreach ($departments as $key=>$department)
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $department->id }}</td>
                                     <td>{{ $department->dept_name }}</td>
                                     {{-- <td>{{ $item->image }}</td> --}}
                                     <td>{{ $department->building }}</td>

@@ -60,7 +60,7 @@
                             <tbody>
                                 @foreach ($students as $key=>$student)
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $student->id }}</td>
                                     <td>{{ $student->stud_name }}</td>
                                     {{-- <td>{{ $item->image }}</td> --}}
                                     <td>{{ $student->tot_cred }}</td>

@@ -59,7 +59,7 @@
                             <tbody>
                                 @foreach ($instructors as $key=>$instructor)
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $instructor->id }}</td>
                                     <td>{{ $instructor->inst_name }}</td>
                                     {{-- <td>{{ $item->image }}</td> --}}
                                     <td>{{ $instructor->salary }}</td>

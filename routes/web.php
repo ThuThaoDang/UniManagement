@@ -14,7 +14,10 @@
 Auth::routes();
 
 Route::middleware('auth')->group(function(){
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/', function(){
+        return redirect()->route('department.index');
+    });
+    // Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('/department', 'DepartmentController');
     Route::resource('/instructor', 'InstructorController');
     Route::resource('/course', 'CourseController');
