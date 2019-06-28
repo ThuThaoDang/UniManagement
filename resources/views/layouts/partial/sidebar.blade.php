@@ -6,31 +6,27 @@
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class="has-sub">
-                    {{-- <li class="has-sub{{ Request::is('admin/dashboard*') ? ' active' : '' }}"> --}}
+                    <li class="has-sub{{ Request::is('dashboard*') ? ' active' : '' }}">
                     <a class="js-arrow" href="">
-                        {{-- <a class="js-arrow" href="{{ route('admin.dashboard') }}"> --}}
+                        <a class="js-arrow" href="{{ route('dashboard') }}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
-                {{-- <li class="{{ Request::is('admin/slider*') ? 'active' : '' }}">
-                    <a href="{{ route('slider.index') }}">
-                        <i class="fas fa-play-circle"></i>Sliders</a>
+                <li class="{{ Request::is('department*') ? 'active' : '' }}">
+                    <a href="{{ route('department.index') }}">
+                        <i class="fas fa-play-circle"></i>Departments</a>
                 </li>
-                <li class="{{ Request::is('admin/category*') ? 'active' : '' }}">
-                    <a href="{{ route('category.index') }}">
-                        <i class="fas fa-th-list"></i>Categories</a>
+                <li class="{{ Request::is('instructor*') ? 'active' : '' }}">
+                    <a href="{{ route('instructor.index') }}">
+                        <i class="fas fa-th-list"></i>Instructors</a>
                 </li>
-                <li class="{{ Request::is('admin/item*') ? 'active' : '' }}">
-                    <a href="{{ route('item.index') }}">
-                        <i class="fas fa-th"></i>Items</a>
+                <li class="{{ Request::is('course*') ? 'active' : '' }}">
+                    <a href="{{ route('course.index') }}">
+                        <i class="fas fa-th"></i>Courses</a>
                 </li>
-                <li class="{{ Request::is('admin/reservation*') ? 'active' : '' }}">
-                    <a href="{{ route('reservation.index') }}">
-                        <i class="fa fa-check-square"></i>Reservations</a>
+                <li class="{{ Request::is('student*') ? 'active' : '' }}">
+                    <a href="{{ route('student.index') }}">
+                        <i class="fa fa-check-square"></i>Students</a>
                 </li>
-                <li class="{{ Request::is('admin/contact*') ? 'active' : '' }}">
-                    <a href="{{ route('contact.index') }}">
-                        <i class="fa fa-commenting"></i>Contact Message</a>
-                </li> --}}
             </ul>
         </nav>
     </div>
