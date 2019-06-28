@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Edit Instructor')
+@section('title', 'Edit Department')
 
 @push('css')
 <style>
@@ -94,44 +94,30 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <strong>Edit Instructor</strong>
+                            <strong>Edit Department</strong>
                         </div>
-                        <form method="POST" action="{{ route('instructor.update', $instructor->id) }}">
+                        <form method="POST" action="{{ route('department.update', $department->id) }}">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <div class="card-body card-block">
                                 <div class="form-group">
-                                    <label for="department" class=" form-control-label">Department</label>
-                                    <div class="form-check ">
-                                        <ul class="ks-cboxtags">
-                                            @foreach ($departments as $department)
-                                            <li>
-                                                <input type="radio" id="department-{{ $department->id }}"
-                                                    name="department" value="{{ $department->id }}"
-                                                    class="form-check-input"
-                                                    @if ($instructor->department_id == $department->id)
-                                                        checked
-                                                    @endif
-                                                    >
-                                                <label for="department-{{ $department->id }}">{{ $department->dept_name }}</label>
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="name" class=" form-control-label">Name</label>
-                                    <input type="text" id="name" value="{{ $instructor->inst_name }}" class="form-control"
+                                    <input type="text" id="name" value="{{ $department->dept_name }}" class="form-control"
                                         name="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="salary" class=" form-control-label">Salary</label>
-                                    <input type="text" id="salary" value="{{ $instructor->salary }}"
-                                        class="form-control" name="salary" required>
+                                    <label for="building" class=" form-control-label">Building</label>
+                                    <input type="text" id="building" value="{{ $department->building }}"
+                                        class="form-control" name="building" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget" class=" form-control-label">Budget</label>
+                                    <input type="text" id="budget" value="{{ $department->budget }}"
+                                        class="form-control" name="budget" required>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ route('instructor.index') }}" class="btn btn-secondary btn-sm">
+                                <a href="{{ route('department.index') }}" class="btn btn-secondary btn-sm">
                                     <i class="fa fa-backward"></i> Back
                                 </a>
                                 <button type="reset" class="btn btn-danger btn-sm">
