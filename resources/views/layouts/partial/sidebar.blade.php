@@ -5,12 +5,12 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li class="has-sub">
+                {{-- <li class="has-sub">
                     <li class="has-sub{{ Request::is('dashboard*') ? ' active' : '' }}">
                     <a class="js-arrow" href="">
                         <a class="js-arrow" href="{{ route('dashboard') }}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                </li>
+                </li> --}}
                 <li class="{{ Request::is('department*') ? 'active' : '' }}">
                     <a href="{{ route('department.index') }}">
                         <i class="fas fa-play-circle"></i>Departments</a>

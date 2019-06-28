@@ -11,15 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-
-Route::resource('/student', 'StudentController');
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('/instructor', 'InstructorController');
-Route::resource('/department', 'DepartmentController');
-Route::resource('/course', 'CourseController');
+Route::middleware('auth')->group(function(){
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::resource('/department', 'DepartmentController');
+    Route::resource('/instructor', 'InstructorController');
+    Route::resource('/course', 'CourseController');
+    Route::resource('/student', 'StudentController');
+});

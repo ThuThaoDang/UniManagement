@@ -36,7 +36,7 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        {{-- @if (Request::is('admin*')) --}}
+        @if (!Request::is('login*'))
             <!-- HEADER MOBILE-->
             @include('layouts.partial.header.mobile')
             <!-- END HEADER MOBILE-->
@@ -44,13 +44,13 @@
             <!-- MENU SIDEBAR-->
             @include('layouts.partial.sidebar')
             <!-- END MENU SIDEBAR-->
-        {{-- @endif --}}
+        @endif
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            {{-- @if (Request::is('admin*')) --}}
+            @if (!Request::is('login*'))
                 @include('layouts.partial.header.desktop')
-            {{-- @endif --}}
+            @endif
             <!-- MAIN CONTENT-->
             @yield('content')
             <!-- END MAIN CONTENT-->

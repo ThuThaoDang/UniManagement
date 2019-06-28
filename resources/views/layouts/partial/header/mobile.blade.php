@@ -14,12 +14,12 @@
     <nav class="navbar-mobile">
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
-                <li class="has-sub">
-                    {{-- <li class="has-sub{{ Request::is('admin/dashboard*') ? ' active' : '' }}"> --}}
+                {{-- <li class="has-sub">
+                    <li class="has-sub{{ Request::is('admin/dashboard*') ? ' active' : '' }}">
                     <a class="js-arrow" href="">
-                        {{-- <a class="js-arrow" href="{{ route('admin.dashboard') }}"> --}}
+                        <a class="js-arrow" href="{{ route('admin.dashboard') }}">
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                </li>
+                </li> --}}
                 <li class="{{ Request::is('department*') ? 'active' : '' }}">
                     <a href="{{ route('department.index') }}">
                         <i class="fas fa-play-circle"></i>Departments</a>
