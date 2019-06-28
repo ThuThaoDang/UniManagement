@@ -70,7 +70,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $department = Department::find($id);
-        return view('instructor.edit', compact('department'));
+        return view('department.edit', compact('department'));
     }
 
     /**

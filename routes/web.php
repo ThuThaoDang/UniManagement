@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::resource('/instructor', 'InstructorController');
 Route::resource('/department', 'DepartmentController');
+Route::resource('/course', 'CourseController');

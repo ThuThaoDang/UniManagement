@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Department;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,7 +15,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        return view('course.index', compact('courses'));
     }
 
     /**
@@ -24,7 +26,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        return view('course.create', compact('departments'));
     }
 
     /**
@@ -35,7 +38,18 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'department' => 'required',
+            'credits' => 'required|numeric',
+        ]);
+
+        $course = new Course();
+        $course->title = $request->title;
+        $course->department_id = $request->department;
+        $course->credits = $request->credits;
+        $course->save();
+        return redirect()->route('course.index');
     }
 
     /**
@@ -55,9 +69,11 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit($id)
     {
-        //
+        $course = Course::find($id);
+        $departments = Department::all();
+        return view('course.edit', compact('course', 'departments'));
     }
 
     /**
@@ -67,9 +83,20 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'department' => 'required',
+            'credits' => 'required|numeric',
+        ]);
+
+        $course = Course::find($id);
+        $course->title = $request->title;
+        $course->department_id = $request->department;
+        $course->credits = $request->credits;
+        $course->save();
+        return redirect()->route('course.index');
     }
 
     /**
@@ -78,8 +105,9 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        //
+        Course::find($id)->delete();
+        return redirect()->back();
     }
 }
