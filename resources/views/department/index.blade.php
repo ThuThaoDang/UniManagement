@@ -50,7 +50,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Building</th>
-                                    <th>budget</th>
+                                    <th>Budget</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>

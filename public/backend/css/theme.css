@@ -99,7 +99,7 @@ p {
 
 /* ----- Typography ----- */
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Courier New", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.625;
@@ -1622,7 +1622,7 @@ section {
 .navbar-sidebar .navbar__list li a {
     display: block;
     color: #555;
-    font-size: 16px;
+    font-size: 20px;
     padding: 15px 0;
 }
 
