@@ -1489,7 +1489,7 @@ section {
 }
 
 .account-dropdown .info .content .name a {
-    color: #333;
+    color: rgb(5, 5, 5);
     font-weight: 500;
     text-transform: capitalize;
 }
@@ -1522,7 +1522,7 @@ section {
 
 .account-dropdown__item a {
     display: block;
-    color: #333;
+    color: rgb(0, 0, 0);
     padding: 15px 25px;
     font-size: 14px;
 }
@@ -1549,7 +1549,7 @@ section {
 
 .account-dropdown__footer a {
     display: block;
-    color: #333;
+    color: rgb(5, 5, 5);
     padding: 15px 25px;
     font-size: 14px;
 }
@@ -1737,7 +1737,7 @@ section {
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a {
-    color: #555;
+    color: #0a0a0a;
     display: block;
     padding: 10px 15px;
     padding-right: 25px;
@@ -1791,7 +1791,7 @@ section {
 }
 
 .header-mobile-2 {
-    background: #393939;
+    background: #0a0a0a;
     position: static;
 }
 
@@ -1833,7 +1833,7 @@ section {
 }
 
 .sub-header-mobile-2 .header__tool .account-wrap .account-item--style2 .content a {
-    color: #333;
+    color: rgb(12, 12, 12);
 }
 
 .sub-header-mobile-2 .header__tool .notifi-dropdown {
