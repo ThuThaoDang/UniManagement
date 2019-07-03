@@ -2,7 +2,7 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <h1>University</h1>
+                <h1><a href="{{ route('home') }}"></a></h1>
                 <button class="hamburger hamburger--slider" type="button">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
