@@ -103,9 +103,9 @@
                                                             }">
                                                 <i class="zmdi zmdi-delete"></i>
                                             </button>
-                                            {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button> --}}
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Scores">
+                                                <a href="{{ route('student.show', $student->id) }}"><i class="zmdi zmdi-more"></i></a>
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>

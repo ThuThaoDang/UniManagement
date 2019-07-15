@@ -15,4 +15,9 @@ class Student extends Model
     {
         return $this->belongsTo('App\Instructor');
     }
+
+    public function scores()
+    {
+        return $this->hasMany('App\Score');
+    }
 }

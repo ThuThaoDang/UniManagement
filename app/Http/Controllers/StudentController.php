@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Student;
 use App\Department;
 use App\Instructor;
+use App\Score;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -64,7 +65,9 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        // $fullScore = $student->scores;
+        return view('student.show', compact('student'));
+
     }
 
     /**
