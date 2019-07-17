@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Department;
+use App\Score;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -49,6 +50,17 @@ class CourseController extends Controller
         $course->department_id = $request->department;
         $course->credits = $request->credits;
         $course->save();
+
+        $course = Course::latest()->first();
+
+        foreach ($course->department->students as $value) {
+            $score = new Score();
+            $score->student_id = $value->id;
+            $score->course_id = $course->id;
+            $score->score = 0;
+            $score->save();
+        }
+        
         return redirect()->route('course.index');
     }
 

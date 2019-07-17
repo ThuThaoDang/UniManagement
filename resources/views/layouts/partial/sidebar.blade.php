@@ -27,6 +27,10 @@
                     <a href="{{ route('student.index') }}">
                         <i class="fa fa-users"></i>Students</a>
                 </li>
+                <li class="{{ Request::is('score*') ? 'active' : '' }}">
+                    <a href="{{ route('score.index') }}">
+                        <i class="fa fa-users"></i>Scores</a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Score;
+use App\Course;
 use Illuminate\Http\Request;
 
 class ScoreController extends Controller
@@ -14,7 +15,8 @@ class ScoreController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        return view('score.index', compact('courses'));
     }
 
     /**
@@ -22,9 +24,10 @@ class ScoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $course = Course::find($request->course_id);
+        return view('score.create', compact('course'));
     }
 
     /**
@@ -35,7 +38,7 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
     }
 
     /**
@@ -64,12 +67,20 @@ class ScoreController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Score  $score
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Score $score)
+    public function update(Request $request, $courseId)
     {
-        //
+        $scores = $request->scores[$courseId];
+
+        foreach ($scores as $key => $value) {
+            $scoreData = Score::where(['course_id' => $courseId, 'student_id' => $key])->get();
+            $scoreData['0']->score = $value;
+            $scoreData['0']->save();
+        }
+        
+        return redirect()->route('score.index');
     }
 
     /**
