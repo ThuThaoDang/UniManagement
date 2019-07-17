@@ -15,8 +15,6 @@ class password_resets extends Seeder
             ['email'=>'tranan@gmail.com','token'=>'ma thong bao'],
             ['email'=>'thucam@gmail.com','token'=>'ma thong bao'],
             ['email'=>'tienbo@gmail.com','token'=>'ma thong bao'],
-            
-
         ]);
     }
 }

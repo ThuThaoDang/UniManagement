@@ -12,17 +12,18 @@ class students extends Seeder
     public function run()
     {
         DB::table('students')->insert([
+            ['stud_name'=>'Nguyễn A','tot_cred'=>'142','instructor_id'=>'1','department_id'=>'1'],
+            ['stud_name'=>'Nguyễn Ba','tot_cred'=>'142','instructor_id'=>'1','department_id'=>'1'],
             ['stud_name'=>'Nguyễn Cảnh','tot_cred'=>'142','instructor_id'=>'1','department_id'=>'1'],
-            ['stud_name'=>'Đỗ Cẩm','tot_cred'=>'142','instructor_id'=>'2','department_id'=>'2'],
-            ['stud_name'=>'Lê Thu','tot_cred'=>'142','instructor_id'=>'1','department_id'=>'1'],
-            ['stud_name'=>'Nguyễn Xuân','tot_cred'=>'142','instructor_id'=>'4','department_id'=>'3'],
-            ['stud_name'=>'Trần Tú','tot_cred'=>'142','instructor_id'=>'1','department_id'=>'1'],
-            ['stud_name'=>'Trọng Bảo','tot_cred'=>'142','instructor_id'=>'4','department_id'=>'4'],
-            ['stud_name'=>'Hà Tiên','tot_cred'=>'142','instructor_id'=>'4','department_id'=>'4'],
-            ['stud_name'=>'Hồng Nhân','tot_cred'=>'142','instructor_id'=>'5','department_id'=>'5'],
-            ['stud_name'=>'Hoàng Yến','tot_cred'=>'142','instructor_id'=>'6','department_id'=>'6'],
-            ['stud_name'=>'An Nhiên','tot_cred'=>'142','instructor_id'=>'2','department_id'=>'2'],
-
+            ['stud_name'=>'Nguyễn Đào','tot_cred'=>'142','instructor_id'=>'1','department_id'=>'1'],
+            ['stud_name'=>'HÀ An','tot_cred'=>'142','instructor_id'=>'2','department_id'=>'2'],
+            ['stud_name'=>'Lê Tú','tot_cred'=>'142','instructor_id'=>'2','department_id'=>'2'],
+            ['stud_name'=>'Nguyễn A','tot_cred'=>'142','instructor_id'=>'2','department_id'=>'2'],
+            ['stud_name'=>'Nguyễn B','tot_cred'=>'142','instructor_id'=>'2','department_id'=>'2'],
+            ['stud_name'=>'Trần Kiên','tot_cred'=>'142','instructor_id'=>'3','department_id'=>'3'],
+            ['stud_name'=>'Trền Bảo','tot_cred'=>'142','instructor_id'=>'3','department_id'=>'3'],
+            ['stud_name'=>'Nguyễn Nam','tot_cred'=>'142','instructor_id'=>'3','department_id'=>'3'],
+            ['stud_name'=>'Nguyễn Nữ','tot_cred'=>'142','instructor_id'=>'3','department_id'=>'3'],
         ]);
     }
 }
